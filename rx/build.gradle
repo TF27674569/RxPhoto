@@ -4,6 +4,10 @@ android {
     compileSdkVersion 25
     buildToolsVersion "27.0.2"
 
+    lintOptions {
+        abortOnError false
+    }
+
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 25
@@ -19,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -35,18 +40,18 @@ dependencies {
 /** 以下开始是将Android Library上传到jcenter的相关配置**/
 apply plugin: 'com.novoda.bintray-release'//添加
 //项目主页
-def siteUrl = 'https://github.com/TF27674569/view-ioc'// 我的项目
+def siteUrl = 'https://github.com/TF27674569/RxPhoto'// 我的项目
 publish{
     repoName = 'maven'//远程仓库名字,不指明，默认是上传到maven
     userOrg = 'tf27674569'//bintray.com的用户名
     groupId = 'com.tianfeng'//jcenter上的路径
-    artifactId = 'ViewById'//项目名称
+    artifactId = 'Rx'//项目名称
     publishVersion = '1.0.0'//版本号
-    desc = '编译时注入框架'//描述，不重要
+    desc = 'rxjava封装 6.0权限 系统相机，相册，裁剪 的跳转'//描述，不重要
     website = siteUrl//项目主页
 }
 tasks.withType(Javadoc) {//防止编码问题 可以自行修改编码
     options.addStringOption('Xdoclint:none', '-quiet')
-    options.addStringOption('encoding', 'GBK')
-    options.addStringOption('charSet', 'GBK')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
 }
